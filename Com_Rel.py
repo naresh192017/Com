@@ -1,3 +1,4 @@
+import reliability as reliability
 from reliability.Distributions import Weibull_Distribution
 from reliability.Distributions import Exponential_Distribution
 from reliability.Distributions import Normal_Distribution
