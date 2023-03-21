@@ -1,1 +1,1 @@
-reliability               0.8.6
+reliability==0.8.6
