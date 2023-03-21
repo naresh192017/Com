@@ -14,7 +14,7 @@ from reliability.Other_functions import make_right_censored_data
 import tk
 import re
 import matplotlib
-matplotlib.use('TkAgg')
+matplotlib.use('tkAgg')
 import matplotlib.pyplot as plt
 import streamlit as st
 
