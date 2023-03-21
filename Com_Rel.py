@@ -11,7 +11,8 @@ from reliability.Repairable_systems import optimal_replacement_time
 from reliability.Probability_plotting import plot_points
 from reliability.Fitters import Fit_Everything
 from reliability.Other_functions import make_right_censored_data
-import tkinter as tkimport re
+import tkinter as tk  
+import re
 import matplotlib
 matplotlib.use('tkAgg')
 import matplotlib.pyplot as plt
