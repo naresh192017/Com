@@ -14,7 +14,7 @@ from reliability.Other_functions import make_right_censored_data
 
 import re
 import matplotlib
-matplotlib.use('tkAgg')
+matplotlib.use('TkAgg')
 import matplotlib.pyplot as plt
 import streamlit as st
 
@@ -34,7 +34,6 @@ def show_dist():
             st.number_input('Lambda (scale parameter)', step=0.000001, key='distExponential_Lambda')
 
         elif distName == 'Normal':
-            st.subheader('Please enter parameters of ' + distName + ' distribtion')
             st.number_input('μ = location parameter (−∞<μ<∞)', step=0.01, key='distNormal_MuParam')
             st.number_input('σ = scale parameter (σ>0)', step=0.01, key='distNormal_SigmaParam')
 
