@@ -92,29 +92,32 @@ def show_dist():
 
         if pdfButton: 
             dist.PDF()
-            plt.show()
-
+            #plt.show()
+            st.pyplot()
         elif cdfButton:
             dist.CDF()
-            plt.show()
-
+            #plt.show()
+            st.pyplot()
         elif sfButton:
             dist.SF()
-            plt.show()
-
+            #plt.show()
+            st.pyplot()
         elif hfButton:
             dist.HF() 
-            plt.show()
+            #plt.show()
+            st.pyplot()
 
         elif chfButton:
             dist.CHF() 
-            plt.show()
+            #plt.show()
+            st.pyplot()
 
         elif plotButton:
+            dist.plot() 
+            st.pyplot()
 #             dist.plot() 
 #             plt.show()
 
-            st.plot(dist.plot())
 
 
         elif b5Button:
