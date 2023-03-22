@@ -14,7 +14,7 @@ from reliability.Other_functions import make_right_censored_data
 ## import tkinter as tk
 import re
 import matplotlib
-matplotlib.use('TkAgg')
+##matplotlib.use('TkAgg')
 import matplotlib.pyplot as plt
 import streamlit as st
 
