@@ -17,7 +17,8 @@ import matplotlib
 ##matplotlib.use('TkAgg')
 import matplotlib.pyplot as plt
 import streamlit as st
-
+import warnings
+warnings.filterwarnings('ignore')
 #=================================
 
 def show_dist():
