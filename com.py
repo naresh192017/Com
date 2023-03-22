@@ -15,7 +15,7 @@ import streamlit as st
 import random
 import json
 
-filePath = 'C:\\Users\\omidg\\New RE Version\\ComponentFiles\\'
+#filePath = 'C:\\Users\\omidg\\New RE Version\\ComponentFiles\\'
 dist_list = ['Weibull', 'Exponential', 'Normal', 'Lognormal', 'Gamma', 'Beta', 'Loglogistic', 'Gumbel']
 
 calculated_comps = {}
@@ -25,12 +25,12 @@ comp_relations = {}
 index = {}
 
 
-comp_data_def_filename = filePath + 'comp_def.json'
+comp_data_def_filename =  'comp_def.json'
 comp_data_def_file = open(comp_data_def_filename)
 comp_def_data = json.load(comp_data_def_file)
 comp_data_def_file.close()
 
-comp_config_filename = filePath + 'comp_config.txt'
+comp_config_filename =  'comp_config.txt'
 comp_config_file = open(comp_config_filename)
 comp_config_data = comp_config_file.read()
 comp_config_file.close()
