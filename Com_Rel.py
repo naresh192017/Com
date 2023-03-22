@@ -19,6 +19,7 @@ import matplotlib.pyplot as plt
 import streamlit as st
 
 #=================================
+
 def show_dist():
     distName = st.session_state.distName_tab
  
@@ -31,6 +32,35 @@ def show_dist():
         elif distName == 'Exponential':
             st.subheader('Please enter failure rate of ' + distName + ' distribution')
             st.number_input('Lambda (scale parameter)', step=0.000001, key='distExponential_Lambda')
+
+#         elif distName == 'Normal':
+#             st.number_input('μ = location parameter (−∞<μ<∞)', step=0.01, key='distNormal_MuParam')
+#             st.number_input('σ = scale parameter (σ>0)', step=0.01, key='distNormal_SigmaParam')
+
+#         elif distName == 'Lognormal':
+#             st.subheader('Please enter parameters of ' + distName + ' distribtion')
+#             st.number_input('μ = scale parameter (−∞<μ<∞)', step=0.01, key='distLognormal_MuParam')
+#             st.number_input('σ = shape parameter (σ>0)', step=0.01, key='distLognormal_SigmaParam')
+
+#         elif distName == 'Gamma':
+#             st.subheader('Please enter parameters of ' + distName + ' distribtion')
+#             st.number_input('α = scale parameter (α>0)', step=0.01, key='distGamma_AlphaParam')
+#             st.number_input('β = shape parameter (β>0)', step=0.01, key='distGamma_BetaParam')
+
+#         elif distName == 'Beta':
+#             st.subheader('Please enter parameters of ' + distName + ' distribtion')
+#             st.number_input('α = shape parameter (α>0)', step=0.01, key='distBeta_AlphaParam')
+#             st.number_input('β = shape parameter (β>0)', step=0.01, key='distBeta_BetaParam')
+
+#         elif distName == 'Loglogistic':
+#             st.subheader('Please enter parameters of ' + distName + ' distribtion')
+#             st.number_input('α = scale parameter (α>0)', step=0.01, key='distLoglogistic_AlphaParam')
+#             st.number_input('β = shape parameter (β>0)', step=0.01, key='distLoglogistic_BetaParam')
+
+#         elif distName == 'Gumbel':
+#             st.subheader('Please enter parameters of ' + distName + ' distribtion')
+#             st.number_input('μ = location parameter (−∞<μ<∞)', step=0.01, key='distGumbel_MuParam')
+#             st.number_input('σ = scale parameter (σ>0)', step=0.01, key='distGumbel_SigmaParam')
         
         sfButton = st.form_submit_button(label='Show Reliability Curve', on_click=show_dist)
         pdfButton = st.form_submit_button(label='Show Probebility Distribution Function Curve', on_click=show_dist)
@@ -44,16 +74,75 @@ def show_dist():
         if distName == 'Weibull': 
             distWeibull_Alpha = st.session_state.distWeibull_Alpha
             distWeibull_Beta = st.session_state.distWeibull_Beta
+
             dist = Weibull_Distribution(alpha = distWeibull_Alpha, beta = distWeibull_Beta)  
  
         elif distName == 'Exponential':
             distExponential_Lambda = st.session_state.distExponential_Lambda
+
             dist = Exponential_Distribution(Lambda = distExponential_Lambda)
 
-        
-        if plotButton:
-              dist.plot() 
-              st.pyplot()
+        elif distName == 'Normal':
+            distNormal_MuParam = st.session_state.distNormal_MuParam
+            distNormal_SigmaParam = st.session_state.distNormal_SigmaParam
+    
+            dist = Normal_Distribution(mu = distNormal_MuParam, sigma = distNormal_SigmaParam)
+
+        elif distName == 'Lognormal':
+            distLognormal_MuParam = st.session_state.distLognormal_MuParam
+            distLognormal_SigmaParam = st.session_state.distLognormal_SigmaParam
+
+            dist = Lognormal_Distribution(mu = distLognormal_MuParam, sigma = distLognormal_SigmaParam)
+
+        elif distName == 'Gamma':
+            distGamma_AlphaParam = st.session_state.distGamma_AlphaParam
+            distGamma_BetaParam = st.session_state.distGamma_BetaParam
+
+            dist = Gamma_Distribution(alpha = distGamma_AlphaParam, beta = distGamma_BetaParam)
+
+        elif distName == 'Beta':
+            distBeta_AlphaParam = st.session_state.distBeta_AlphaParam
+            distBeta_BetaParam = st.session_state.distBeta_BetaParam
+
+            dist = Beta_Distribution(alpha = distBeta_AlphaParam, beta = distBeta_BetaParam)
+
+        elif distName == 'Loglogistic':
+            distLoglogistic_AlphaParam = st.session_state.distLoglogistic_AlphaParam
+            distLoglogistic_BetaParam = st.session_state.distLoglogistic_BetaParam
+
+            dist = Loglogistic_Distribution(alpha = distLoglogistic_AlphaParam, beta = distLoglogistic_BetaParam)  
+
+        elif distName == 'Gumbel':
+            distGumbel_MuParam = st.session_state.distGumbel_MuParam
+            distGumbel_SigmaParam = st.session_state.distGumbel_SigmaParam
+    
+            dist = Gumbel_Distribution(mu = distGumbel_MuParam, sigma = distGumbel_SigmaParam)        
+
+        if pdfButton: 
+            dist.PDF()
+            st.pyplot()
+
+        elif cdfButton:
+            dist.CDF()
+            st.pyplot()
+
+        elif sfButton:
+            dist.SF()
+            st.pyplot()
+
+        elif hfButton:
+            dist.HF() 
+            st.pyplot()
+
+        elif chfButton:
+            dist.CHF() 
+            st.pyplot()
+
+        elif plotButton:
+            dist.plot() 
+            st.pyplot()
+
+
         elif b5Button:
             st.write('B5: ', dist.b5) 
             
@@ -456,7 +545,66 @@ def show_ort():
             optimal_replacement_time(cost_PM = reli_PMC, cost_CM = reli_CMC , Exponentioal_Lambda = distExponential_Lambda, q=0)
             plt.show()
 
+        # elif distName == 'Normal':
+        #     distNormal_MuParam = st.session_state.distNormal_MuParam
+        #     distNormal_SigmaParam = st.session_state.distNormal_SigmaParam
+        #     optimal_replacement_time(cost_PM = reli_PMC, cost_CM = reli_CMC , weibull_alpha = distWeibull_Alpha, weibull_beta = distWeibull_Beta, q=0)
+        #     plt.show()
+        #    Exponential_Distribution(Lambda = distExponential_Lambda)
+        # elif distName == 'Lognormal':
+        #     distLognormal_MuParam = st.session_state.distLognormal_MuParam
+        #     distLognormal_SigmaParam = st.session_state.distLognormal_SigmaParam
+
+        #     dist = Lognormal_Distribution(mu = distLognormal_MuParam, sigma = distLognormal_SigmaParam)
+        #     TTF = dist.inverse_SF (reli_Reliability) 
+                    
+        #     st.write('Time to failure for this chosen reliability is ', TTF)
+
+
+        # elif distName == 'Gamma':
+        #     distGamma_AlphaParam = st.session_state.distGamma_AlphaParam
+        #     distGamma_BetaParam = st.session_state.distGamma_BetaParam
+
+        #     dist = Gamma_Distribution(alpha = distGamma_AlphaParam, beta = distGamma_BetaParam)
+        #     TTF = dist.inverse_SF (reli_Reliability) 
+                    
+        #     st.write('Time to failure for this chosen reliability is ', TTF)
+
+
+        # elif distName == 'Beta':
+        #     distBeta_AlphaParam = st.session_state.distBeta_AlphaParam
+        #     distBeta_BetaParam = st.session_state.distBeta_BetaParam
+
+        #     dist = Beta_Distribution(alpha = distBeta_AlphaParam, beta = distBeta_BetaParam)
+        #     TTF = dist.inverse_SF (reli_Reliability) 
+                    
+        #     st.write('Time to failure for this chosen reliability is ', TTF)
+
+
+        # elif distName == 'Loglogistic':
+        #     distLoglogistic_AlphaParam = st.session_state.distLoglogistic_AlphaParam
+        #     distLoglogistic_BetaParam = st.session_state.distLoglogistic_BetaParam
+
+        #     dist = Loglogistic_Distribution(alpha = distLoglogistic_AlphaParam, beta = distLoglogistic_BetaParam)              
+        #     TTF = dist.inverse_SF (reli_Reliability) 
+                    
+        #     st.write('Time to failure for this chosen reliability is ', TTF)
+
+
+        # elif distName == 'Gumbel':
+        #     distGumbel_MuParam = st.session_state.distGumbel_MuParam
+        #     distGumbel_SigmaParam = st.session_state.distGumbel_SigmaParam
     
+        #     dist = Gumbel_Distribution(mu = distGumbel_MuParam, sigma = distGumbel_SigmaParam)
+        #     TTF = dist.inverse_SF (reli_Reliability) 
+                    
+        #     st.write('Time to failure for this chosen reliability is: ', TTF)     
+    
+                
+        
+
+       
+        
 
 #=================================
     
