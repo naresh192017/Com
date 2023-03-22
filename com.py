@@ -6,9 +6,9 @@ from reliability.Distributions import Gamma_Distribution
 from reliability.Distributions import Beta_Distribution
 from reliability.Distributions import Loglogistic_Distribution
 from reliability.Distributions import Gumbel_Distribution
-import tkinter
+#import tkinter
 import matplotlib
-matplotlib.use('TkAgg')
+#matplotlib.use('TkAgg')
 import matplotlib.pyplot as plt
 import pandas as pd
 import streamlit as st
