@@ -64,7 +64,7 @@ def show_dist():
               dist.plot() 
               st.pyplot()
         elif b5Button:
-            #st.write('B5: ', dist.b5) 
+            st.write('B5: ', dist.b5) 
             
             
 #=================================
