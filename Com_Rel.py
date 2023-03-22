@@ -111,8 +111,12 @@ def show_dist():
             plt.show()
 
         elif plotButton:
+#             dist.plot() 
+#             plt.show()
+
+            fig, ax = plt.subplots()
             dist.plot() 
-            plt.show()
+            st.plot(fig)
 
 
         elif b5Button:
