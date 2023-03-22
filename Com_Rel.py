@@ -50,17 +50,8 @@ def show_dist():
             distExponential_Lambda = st.session_state.distExponential_Lambda
             dist = Exponential_Distribution(Lambda = distExponential_Lambda)
 
-        if pdfButton: 
-            dist.PDF()
-        elif cdfButton:
-            dist.CDF()
-        elif sfButton:
-            dist.SF()
-        elif hfButton:
-            dist.HF() 
-        elif chfButton:
-            dist.CHF() 
-        elif plotButton:
+        
+        if plotButton:
               dist.plot() 
               st.pyplot()
         elif b5Button:
