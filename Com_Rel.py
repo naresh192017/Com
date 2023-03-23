@@ -488,8 +488,7 @@ def show_ort():
         elif distName == 'Exponential':
             st.subheader('Please enter parameter of ' + distName + ' distribtion')
             st.number_input('Lambda (scale parameter)', step=0.01, key='distExponential_Lambda')
-            st.number_input('Alpha (scale parameter)', step=1, key='distWeibull_Alpha')
-            st.number_input('Beta (shape parameter)', step=0.01, key='distWeibull_Beta')
+          
 
         elif distName == 'Normal':
             st.subheader('Please enter parameters of ' + distName + ' distribtion')
@@ -546,10 +545,11 @@ def show_ort():
             distExponential_Lambda = st.session_state.distExponential_Lambda
    
             import reliability
-            optimal_replacement_time = reliability.replacement.exponential_replacement(reliability=reli_CMC/reli_PMC, lamb=distExponential_Lambda)
+            optimal_replacement_time = reliability.repair.replacement.exponential_replacement(reliability=reli_CMC/reli_PMC, lamb=distExponential_Lambda)
+        
             
             x = np.linspace(0, optimal_replacement_time*2, 100)
-            y = reliability.Exponential(lmbda).survival_function(x)
+            y = reliability.Exponential(distExponential_Lambda).survival_function(x)
             fig, ax = plt.subplots()
             ax.plot(x, y)
             ax.axvline(optimal_replacement_time, color='r', linestyle='--')
