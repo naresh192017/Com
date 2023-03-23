@@ -299,6 +299,7 @@ def show_ttf():
         elif distName == 'Exponential':
             st.subheader('Please enter parameter of ' + distName + ' distribtion')
             st.number_input('Lambda (scale parameter)', step=0.000001, key='distExponential_Lambda')
+            
 
         elif distName == 'Normal':
             st.subheader('Please enter parameters of ' + distName + ' distribtion')
@@ -487,7 +488,8 @@ def show_ort():
         elif distName == 'Exponential':
             st.subheader('Please enter parameter of ' + distName + ' distribtion')
             st.number_input('Lambda (scale parameter)', step=0.01, key='distExponential_Lambda')
-            
+            st.number_input('Alpha (scale parameter)', step=1, key='distWeibull_Alpha')
+            st.number_input('Beta (shape parameter)', step=0.01, key='distWeibull_Beta')
 
         elif distName == 'Normal':
             st.subheader('Please enter parameters of ' + distName + ' distribtion')
@@ -542,15 +544,12 @@ def show_ort():
         elif distName == 'Exponential':
             
             distExponential_Lambda = st.session_state.distExponential_Lambda
-#             distWeibull_Alpha = st.session_state.distWeibull_Alpha
-#             distWeibull_Beta = st.session_state.distWeibull_Beta
-            
-#             optimal_time = optimal_replacement_time(cost_PM = reli_PMC, cost_CM = reli_CMC , Exponentioal_Lambda = distExponential_Lambda,
-#                                 weibull_alpha = distWeibull_Alpha, weibull_beta = distWeibull_Beta,    q=0)
-#             st.write('Optimal replacement time:', optimal_time)
-            
-            optimal_time = optimal_replacement_time(cost_PM = reli_PMC, cost_CM = reli_CMC, Exponential_Lambda=distExponential_Lambda, q=0)
-            print('Optimal replacement time:', optimal_time)
+            t_opt = Exponential_Distribution.optimal_replacement_time(distExponential_Lambda, reli_PMC, reli_CMC)
+            st.write(f"The optimal replacement time is {t_opt:.2f} units.")
+            st.write("Reliability Function:")
+            t = np.linspace(0, 10, 100)
+            R = rel.Exponential_Distribution reliability_function(t, distExponential_Lambda)
+            st.line_chart(zip(t,R))
             
 
 #         elif distName == 'Normal':
