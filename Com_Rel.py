@@ -447,7 +447,8 @@ def show_dfit():
             if BestFitButton:
 
                 numbers=st.session_state.numbers
-                a=[float(i) for i in  numbers.split(', ') ]
+                #float(str(i).replace(",", "")) 
+                a=[float(str(i)) for i in  numbers.split(', ') ]
                 
                 st.write(numbers)
               
