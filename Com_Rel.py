@@ -544,13 +544,19 @@ def show_ort():
         elif distName == 'Exponential':
             
             distExponential_Lambda = st.session_state.distExponential_Lambda
-            t_opt = Exponential_Distribution.optimal_replacement_time(distExponential_Lambda, reli_PMC, reli_CMC)
-            st.write(f"The optimal replacement time is {t_opt:.2f} units.")
-            st.write("Reliability Function:")
-            t = np.linspace(0, 10, 100)
-            R = Exponential_Distribution.reliability_function(t, distExponential_Lambda)
-            st.line_chart(zip(t,R))
+   
+            import reliability
+            optimal_replacement_time = reliability.replacement.exponential_replacement(reliability=reli_CMC/reli_PMC, lamb=distExponential_Lambda)
             
+            x = np.linspace(0, optimal_replacement_time*2, 100)
+            y = reliability.Exponential(lmbda).survival_function(x)
+            fig, ax = plt.subplots()
+            ax.plot(x, y)
+            ax.axvline(optimal_replacement_time, color='r', linestyle='--')
+            ax.set_xlabel('Time')
+            ax.set_ylabel('Survival Probability')
+            ax.set_title('Exponential Distribution with Optimal Replacement Time')
+            st.pyplot(fig)
 
 #         elif distName == 'Normal':
 #             distNormal_MuParam = st.session_state.distNormal_MuParam
