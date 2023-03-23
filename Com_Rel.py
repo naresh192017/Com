@@ -455,12 +455,12 @@ def show_dfit():
                 
                 raw_data = a
                 st.write (a)
-                data = make_right_censored_data(raw_data, threshold=14)
+                data = make_right_censored_data(raw_data, threshold=54)
                 
 #                 b=[9.97, 3.57, 11.13, 9.96, 9.8 , 8.85, 7.34, 11.86, 8.51, 8.12, 11.88, 10.92, 6.3, 10.76, 7.06, 13.85, 14.93, 10.56, 14.8, 5.23, 10.67, 4.89, 9.88, 5.6, 6.17, 11.62, 7.62, 5.8 , 7.55, 9.06, 10.29, 7.3, 12.09, 10.45, 10.67, 9.46, 13.97, 11.44, 6.74, 12.77, 17.94, 10.62, 15.61, 8.97, 11.31, 9.88, 9.97, 13.73, 10.98, 17.45, 11.07, 5.29, 9.24, 14.87, 9.66, 3.63, 7.89, 4.93, 20.64, 18.26, 14.07, 11.67, 13.58, 6.84, 8.43, 10.87, 9.13, 4.32, 19.18, 10.02, 10.66, 8.77, 8.04, 9.46, 14.55, 13.21, 9.37, 2.83, 14.03, 8.16, 11.47, 3.55, 12.33, 9.46, 10.59, 9.75, 9.07, 11.14, 18.41, 5.91, 8.66, 4.19, 13.23, 12.28, 7.47, 9.77, 12.13, 12.32, 6.86, 15.45]
 #                 raw_data = b
 #                 st.write (b)
-#                 data = make_right_censored_data(b, threshold=14)
+#                 data = make_right_censored_data(b)
                 results = Fit_Everything(failures=data.failures, right_censored=data.right_censored)
                 st.write (" The best distribution fit is : ", results.best_distribution_name)
                 st.write ( results.best_distribution.parameters)
