@@ -530,7 +530,7 @@ def show_ort():
         reli_PMC= st.session_state.reli_PMC
         reli_CMC= st.session_state.reli_CMC
         distWeibull_Alpha = 1
-        distWeibull_Beta = 0
+        distWeibull_Beta = 1
         if distName == 'Weibull':
             distWeibull_Alpha = st.session_state.distWeibull_Alpha
             distWeibull_Beta = st.session_state.distWeibull_Beta
