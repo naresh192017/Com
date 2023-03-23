@@ -645,11 +645,5 @@ with tab_dfit:
              on_change=show_dfit, key='distName_dfit')
              
 with tab_ORT:
-    b= st.radio('To calculate the Optimom Replacement Time of the component, please select its distribution and enter parameters. Then enter your Preventive Maintenance Cost and Corective Maintenance Time and press the Calculte Optimal Replacement Time button.', ['Weibull' ,
-             'Exponential',
-             'Normal',
-             'Lognormal',
-             'Gamma',
-             'Beta',
-             'Loglogistic',
-             'Gumbel'], on_change=show_ort, key='distName_ort')
+    b= st.radio('To calculate the Optimom Replacement Time of the component, please select its distribution and enter parameters. Then enter your Preventive Maintenance Cost and Corective Maintenance Time and press the Calculte Optimal Replacement Time button.', ['Weibull' 
+            ], on_change=show_ort, key='distName_ort')
