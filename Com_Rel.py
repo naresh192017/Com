@@ -485,39 +485,39 @@ def show_ort():
             st.number_input('Alpha (scale parameter)', step=1, key='distWeibull_Alpha')
             st.number_input('Beta (shape parameter)', step=0.01, key='distWeibull_Beta')
 
-        elif distName == 'Exponential':
-            st.subheader('Please enter parameter of ' + distName + ' distribtion')
-            st.number_input('Lambda (scale parameter)', step=0.000001, key='distExponential_Lambda')
+#         elif distName == 'Exponential':
+#             st.subheader('Please enter parameter of ' + distName + ' distribtion')
+#             st.number_input('Lambda (scale parameter)', step=0.000001, key='distExponential_Lambda')
 
-        elif distName == 'Normal':
-            st.subheader('Please enter parameters of ' + distName + ' distribtion')
-            st.number_input('μ = location parameter (−∞<μ<∞)', step=0.01, key='distNormal_MuParam')
-            st.number_input('σ = scale parameter (σ>0)', step=0.01, key='distNormal_SigmaParam')
+#         elif distName == 'Normal':
+#             st.subheader('Please enter parameters of ' + distName + ' distribtion')
+#             st.number_input('μ = location parameter (−∞<μ<∞)', step=0.01, key='distNormal_MuParam')
+#             st.number_input('σ = scale parameter (σ>0)', step=0.01, key='distNormal_SigmaParam')
 
-        elif distName == 'Lognormal':
-            st.subheader('Please enter parameters of ' + distName + ' distribtion')
-            st.number_input('μ = scale parameter (−∞<μ<∞)', step=0.01, key='distLognormal_MuParam')
-            st.number_input('σ = shape parameter (σ>0)', step=0.01, key='distLognormal_SigmaParam')
+#         elif distName == 'Lognormal':
+#             st.subheader('Please enter parameters of ' + distName + ' distribtion')
+#             st.number_input('μ = scale parameter (−∞<μ<∞)', step=0.01, key='distLognormal_MuParam')
+#             st.number_input('σ = shape parameter (σ>0)', step=0.01, key='distLognormal_SigmaParam')
 
-        elif distName == 'Gamma':
-            st.subheader('Please enter parameters of ' + distName + ' distribtion')
-            st.number_input('α = scale parameter (α>0)', step=0.01, key='distGamma_AlphaParam')
-            st.number_input('β = shape parameter (β>0)', step=0.01, key='distGamma_BetaParam')
+#         elif distName == 'Gamma':
+#             st.subheader('Please enter parameters of ' + distName + ' distribtion')
+#             st.number_input('α = scale parameter (α>0)', step=0.01, key='distGamma_AlphaParam')
+#             st.number_input('β = shape parameter (β>0)', step=0.01, key='distGamma_BetaParam')
 
-        elif distName == 'Beta':
-            st.subheader('Please enter parameters of ' + distName + ' distribtion')
-            st.number_input('α = shape parameter (α>0)', step=0.01, key='distBeta_AlphaParam')
-            st.number_input('β = shape parameter (β>0)', step=0.01, key='distBeta_BetaParam')
+#         elif distName == 'Beta':
+#             st.subheader('Please enter parameters of ' + distName + ' distribtion')
+#             st.number_input('α = shape parameter (α>0)', step=0.01, key='distBeta_AlphaParam')
+#             st.number_input('β = shape parameter (β>0)', step=0.01, key='distBeta_BetaParam')
 
-        elif distName == 'Loglogistic':
-            st.subheader('Please enter parameters of ' + distName + ' distribtion')
-            st.number_input('α = scale parameter (α>0)', step=0.01, key='distLoglogistic_AlphaParam')
-            st.number_input('β = shape parameter (β>0)', step=0.01, key='distLoglogistic_BetaParam')
+#         elif distName == 'Loglogistic':
+#             st.subheader('Please enter parameters of ' + distName + ' distribtion')
+#             st.number_input('α = scale parameter (α>0)', step=0.01, key='distLoglogistic_AlphaParam')
+#             st.number_input('β = shape parameter (β>0)', step=0.01, key='distLoglogistic_BetaParam')
 
-        elif distName == 'Gumbel':
-            st.subheader('Please enter parameters of ' + distName + ' distribtion')
-            st.number_input('μ = location parameter (−∞<μ<∞)', step=0.01, key='distGumbel_MuParam')
-            st.number_input('σ = scale parameter (σ>0)', step=0.01, key='distGumbel_SigmaParam')
+#         elif distName == 'Gumbel':
+#             st.subheader('Please enter parameters of ' + distName + ' distribtion')
+#             st.number_input('μ = location parameter (−∞<μ<∞)', step=0.01, key='distGumbel_MuParam')
+#             st.number_input('σ = scale parameter (σ>0)', step=0.01, key='distGumbel_SigmaParam')
         
   
         st.number_input('Preventive Maintenance Cost', step=0.01, key='reli_PMC')
@@ -540,11 +540,11 @@ def show_ort():
             #st.write('Optimum replacement time  is ', TTF)
             
 
-        elif distName == 'Exponential':
-            distExponential_Lambda = st.session_state.distExponential_Lambda
+#         elif distName == 'Exponential':
+#             distExponential_Lambda = st.session_state.distExponential_Lambda
 
-            optimal_replacement_time(cost_PM = reli_PMC, cost_CM = reli_CMC , Exponentioal_Lambda = distExponential_Lambda, q=0)
-            plt.show()
+#             optimal_replacement_time(cost_PM = reli_PMC, cost_CM = reli_CMC , Exponentioal_Lambda = distExponential_Lambda, q=0)
+#             plt.show()
 
         # elif distName == 'Normal':
         #     distNormal_MuParam = st.session_state.distNormal_MuParam
