@@ -548,7 +548,7 @@ def show_ort():
             st.write(f"The optimal replacement time is {t_opt:.2f} units.")
             st.write("Reliability Function:")
             t = np.linspace(0, 10, 100)
-            R = rel.Exponential_Distribution reliability_function(t, distExponential_Lambda)
+            R = reliability.Exponential_Distribution reliability_function(t, distExponential_Lambda)
             st.line_chart(zip(t,R))
             
 
