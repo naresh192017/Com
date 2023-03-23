@@ -544,18 +544,18 @@ def show_ort():
 
         elif distName == 'Exponential':
             distExponential_Lambda = st.session_state.distExponential_Lambda
-            distWeibull_Alpha = st.session_state.distWeibull_Alpha
-            distWeibull_Beta = st.session_state.distWeibull_Beta
             
-            optimal_replacement_time(cost_PM = reli_PMC, cost_CM = reli_CMC , Exponentioal_Lambda = distExponential_Lambda, weibull_alpha = distWeibull_Alpha, weibull_beta = distWeibull_Beta, q=0)
+            optimal_replacement_time(cost_PM = reli_PMC, cost_CM = reli_CMC , Exponentioal_Lambda = distExponential_Lambda,
+                                     weibull_alpha = distWeibull_Alpha, weibull_beta = distWeibull_Beta, q=0)
             st.pyplot()
             
 
-        # elif distName == 'Normal':
-        #     distNormal_MuParam = st.session_state.distNormal_MuParam
-        #     distNormal_SigmaParam = st.session_state.distNormal_SigmaParam
-        #     optimal_replacement_time(cost_PM = reli_PMC, cost_CM = reli_CMC , weibull_alpha = distWeibull_Alpha, weibull_beta = distWeibull_Beta, q=0)
-        #     plt.show()
+        elif distName == 'Normal':
+            distNormal_MuParam = st.session_state.distNormal_MuParam
+            distNormal_SigmaParam = st.session_state.distNormal_SigmaParam
+            optimal_replacement_time(cost_PM = reli_PMC, cost_CM = reli_CMC , weibull_alpha = distWeibull_Alpha, weibull_beta = distWeibull_Beta, q=0)
+            st.pyplot()
+            
         #    Exponential_Distribution(Lambda = distExponential_Lambda)
         # elif distName == 'Lognormal':
         #     distLognormal_MuParam = st.session_state.distLognormal_MuParam
