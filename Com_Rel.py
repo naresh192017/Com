@@ -487,8 +487,7 @@ def show_ort():
 
         elif distName == 'Exponential':
             st.subheader('Please enter parameter of ' + distName + ' distribtion')
-            st.number_input('Lambda (scale parameter)', step=0.01, key='distExponential_Lambda')
-          
+            st.number_input('Lambda (scale parameter)', step=0.000001, key='distExponential_Lambda')
 
         elif distName == 'Normal':
             st.subheader('Please enter parameters of ' + distName + ' distribtion')
@@ -524,7 +523,8 @@ def show_ort():
         st.number_input('Preventive Maintenance Cost', step=0.01, key='reli_PMC')
         st.number_input('Corective Maintenance Cost', step=0.01, key='reli_CMC')
 
-        TTFButton = st.form_submit_button(label='Calculate Optimal Replacement Cost', on_click=show_ort)
+        TTFButton = st.form_submit_button(label='Calculate Optimal Replacement Cost', on_click=show_ort)    
+  
 
     
   
@@ -537,33 +537,20 @@ def show_ort():
 
             optimal_replacement_time(cost_PM = reli_PMC, cost_CM = reli_CMC , weibull_alpha = distWeibull_Alpha, weibull_beta = distWeibull_Beta, q=0)
             st.pyplot()
-            
+            #st.write('Optimum replacement time  is ', TTF)
             
 
         elif distName == 'Exponential':
-            
             distExponential_Lambda = st.session_state.distExponential_Lambda
-   
-            import reliability
-            optimal_replacement_time = reliability.repair.replacement.exponential_replacement(reliability=reli_CMC/reli_PMC, lamb=distExponential_Lambda)
-        
-            
-            x = np.linspace(0, optimal_replacement_time*2, 100)
-            y = reliability.Exponential(distExponential_Lambda).survival_function(x)
-            fig, ax = plt.subplots()
-            ax.plot(x, y)
-            ax.axvline(optimal_replacement_time, color='r', linestyle='--')
-            ax.set_xlabel('Time')
-            ax.set_ylabel('Survival Probability')
-            ax.set_title('Exponential Distribution with Optimal Replacement Time')
-            st.pyplot(fig)
 
-#         elif distName == 'Normal':
-#             distNormal_MuParam = st.session_state.distNormal_MuParam
-#             distNormal_SigmaParam = st.session_state.distNormal_SigmaParam
-#             optimal_replacement_time(cost_PM = reli_PMC, cost_CM = reli_CMC , weibull_alpha = distWeibull_Alpha, weibull_beta = distWeibull_Beta, q=0)
-#             st.pyplot()
-            
+            optimal_replacement_time(cost_PM = reli_PMC, cost_CM = reli_CMC , Exponentioal_Lambda = distExponential_Lambda, q=0)
+            plt.show()
+
+        # elif distName == 'Normal':
+        #     distNormal_MuParam = st.session_state.distNormal_MuParam
+        #     distNormal_SigmaParam = st.session_state.distNormal_SigmaParam
+        #     optimal_replacement_time(cost_PM = reli_PMC, cost_CM = reli_CMC , weibull_alpha = distWeibull_Alpha, weibull_beta = distWeibull_Beta, q=0)
+        #     plt.show()
         #    Exponential_Distribution(Lambda = distExponential_Lambda)
         # elif distName == 'Lognormal':
         #     distLognormal_MuParam = st.session_state.distLognormal_MuParam
@@ -614,11 +601,6 @@ def show_ort():
                     
         #     st.write('Time to failure for this chosen reliability is: ', TTF)     
     
-                
-        
-
-       
-        
 
 #=================================
     
