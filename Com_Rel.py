@@ -529,17 +529,14 @@ def show_ort():
     if TTFButton:
         reli_PMC= st.session_state.reli_PMC
         reli_CMC= st.session_state.reli_CMC
-
+        distWeibull_Alpha = None
+        distWeibull_Beta = None
         if distName == 'Weibull':
             distWeibull_Alpha = st.session_state.distWeibull_Alpha
             distWeibull_Beta = st.session_state.distWeibull_Beta
 
             optimal_replacement_time(cost_PM = reli_PMC, cost_CM = reli_CMC , weibull_alpha = distWeibull_Alpha, weibull_beta = distWeibull_Beta, q=0)
             st.pyplot()
-
-        
-                    
-            #st.write('Optimum replacement time  is ', TTF)
             
 
         elif distName == 'Exponential':
@@ -550,11 +547,11 @@ def show_ort():
             st.pyplot()
             
 
-        elif distName == 'Normal':
-            distNormal_MuParam = st.session_state.distNormal_MuParam
-            distNormal_SigmaParam = st.session_state.distNormal_SigmaParam
-            optimal_replacement_time(cost_PM = reli_PMC, cost_CM = reli_CMC , weibull_alpha = distWeibull_Alpha, weibull_beta = distWeibull_Beta, q=0)
-            st.pyplot()
+#         elif distName == 'Normal':
+#             distNormal_MuParam = st.session_state.distNormal_MuParam
+#             distNormal_SigmaParam = st.session_state.distNormal_SigmaParam
+#             optimal_replacement_time(cost_PM = reli_PMC, cost_CM = reli_CMC , weibull_alpha = distWeibull_Alpha, weibull_beta = distWeibull_Beta, q=0)
+#             st.pyplot()
             
         #    Exponential_Distribution(Lambda = distExponential_Lambda)
         # elif distName == 'Lognormal':
