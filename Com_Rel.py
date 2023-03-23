@@ -448,8 +448,8 @@ def show_dfit():
 
                 numbers=st.session_state.numbers
                 #float(str(i).replace(",", "")) 
-                #a=[float(str(i)) for i in  numbers.split(',') ]
-                a = [float(i) for i in ",".join(numbers).split(",")]
+                a=[float(str(i)) for i in  numbers.split(',') ]
+                #a = [float(i) for i in ",".join(numbers).split(",")]
                 #st.write(a)
                 #st.write(numbers)
                 
