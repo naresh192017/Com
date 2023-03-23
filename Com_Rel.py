@@ -531,23 +531,22 @@ def show_ort():
     if TTFButton: 
         reli_PMC= st.session_state.reli_PMC
         reli_CMC= st.session_state.reli_CMC
-#         if distName == 'Weibull':
-#             distWeibull_Alpha = st.session_state.distWeibull_Alpha
-#             distWeibull_Beta = st.session_state.distWeibull_Beta
-
-#             optimal_replacement_time(cost_PM = reli_PMC, cost_CM = reli_CMC , weibull_alpha = distWeibull_Alpha, weibull_beta = distWeibull_Beta, q=0)
-#             st.pyplot()
-            
-            
-
-        if distName == 'Exponential':
-            
-            distExponential_Lambda = st.session_state.distExponential_Lambda
+        if distName == 'Weibull':
             distWeibull_Alpha = st.session_state.distWeibull_Alpha
             distWeibull_Beta = st.session_state.distWeibull_Beta
+
+            optimal_replacement_time(cost_PM = reli_PMC, cost_CM = reli_CMC , weibull_alpha = distWeibull_Alpha, weibull_beta = distWeibull_Beta, q=0)
+            st.pyplot()
+            
+            
+
+        elif distName == 'Exponential':
+            
+            distExponential_Lambda = st.session_state.distExponential_Lambda
+
             
             optimal_replacement_time(cost_PM = reli_PMC, cost_CM = reli_CMC , Exponentioal_Lambda = distExponential_Lambda,
-                                     weibull_alpha = distWeibull_Alpha, weibull_beta = distWeibull_Beta, q=0)
+                                   q=0)
             st.pyplot()
             
 
