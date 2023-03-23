@@ -547,8 +547,9 @@ def show_ort():
         elif distName == 'Exponential':
             distExponential_Lambda = st.session_state.distExponential_Lambda
 
-            optimal_replacement_time(cost_PM = reli_PMC, cost_CM = reli_CMC , Exponentioal_Lambda = distExponential_Lambda, q=0)
+            optimal_replacement_time(cost_PM = reli_PMC, cost_CM = reli_CMC , Exponentioal_Lambda = distExponential_Lambda, weibull_alpha = distWeibull_Alpha, weibull_beta = distWeibull_Beta, q=0)
             st.pyplot()
+            
 
         # elif distName == 'Normal':
         #     distNormal_MuParam = st.session_state.distNormal_MuParam
