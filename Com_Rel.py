@@ -535,7 +535,7 @@ def show_ort():
             distWeibull_Beta = st.session_state.distWeibull_Beta
 
             optimal_replacement_time(cost_PM = reli_PMC, cost_CM = reli_CMC , weibull_alpha = distWeibull_Alpha, weibull_beta = distWeibull_Beta, q=0)
-            plt.show()
+            st.pyplot()
 
         
                     
@@ -546,7 +546,7 @@ def show_ort():
             distExponential_Lambda = st.session_state.distExponential_Lambda
 
             optimal_replacement_time(cost_PM = reli_PMC, cost_CM = reli_CMC , Exponentioal_Lambda = distExponential_Lambda, q=0)
-            plt.show()
+            st.pyplot()
 
         # elif distName == 'Normal':
         #     distNormal_MuParam = st.session_state.distNormal_MuParam
