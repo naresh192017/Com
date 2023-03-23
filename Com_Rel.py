@@ -447,12 +447,8 @@ def show_dfit():
             if BestFitButton:
 
                 numbers=st.session_state.numbers
-                #float(str(i).replace(",", "")) 
-                a=[float(str(i)) for i in  numbers.split(',') ]
-                #a = [float(i) for i in ",".join(numbers).split(",")]
-                #st.write(a)
-                #st.write(numbers)
-                
+              
+                a=[float(str(i)) for i in  numbers.split(',') ]              
                 raw_data = a
                 st.write (a)
                 data = make_right_censored_data(raw_data, threshold=14)
