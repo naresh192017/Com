@@ -486,7 +486,7 @@ def show_ort():
 
         elif distName == 'Exponential':
             st.subheader('Please enter parameter of ' + distName + ' distribtion')
-            st.number_input('Lambda (scale parameter)', step=0.000001, key='distExponential_Lambda')
+            st.number_input('Lambda (scale parameter)', step=0.01, key='distExponential_Lambda')
             st.number_input('Alpha (scale parameter)', step=1, key='distWeibull_Alpha')
             st.number_input('Beta (shape parameter)', step=0.01, key='distWeibull_Beta')
 
