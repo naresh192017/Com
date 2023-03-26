@@ -338,6 +338,10 @@ def show_assistant_comp_config_File():
 
             st.write('File ', comp_config_filename, ' was saved.')
 
+def show_title():
+
+    st.title('Component Reliability')
+    st.write('-----------------')
 #=================================
 
 comp_rel, tab_comp, tab_conf, tab_montc, tab_sen = st.sidebar.tabs(['Component Reliability','Components Definition', 'Configuration Definition', 'Monte Carlo Calculation','Sensitivity Analysis'])
@@ -345,6 +349,7 @@ comp_rel, tab_comp, tab_conf, tab_montc, tab_sen = st.sidebar.tabs(['Component R
 
 with comp_rel:
     st.write("Component Reliability") 
+    st.button('Enter your Components ', on_click=show_title)
     
 with tab_comp:
     st.write('Steps for defining a componet:  \n1- Click on the Enter your component key.  \n2- Click on Add New Component key.    \n3- Type a unique name for your component.     \n4- Choose the component distribution from the list.     \n5- Enter your Parameters.      \n6- Click on Add/Edit componet.       \n7- Clike on Edit button for editing an existing component.')
