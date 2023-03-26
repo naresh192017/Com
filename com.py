@@ -339,9 +339,10 @@ def show_assistant_comp_config_File():
             st.write('File ', comp_config_filename, ' was saved.')
 
 #=================================
-st.title("Component Reliability")
+
 comp_rel, tab_comp, tab_conf, tab_montc, tab_sen = st.sidebar.tabs(['Component Reliability','Components Definition', 'Configuration Definition', 'Monte Carlo Calculation','Sensitivity Analysis'])
-   
+
+st.title("Component Reliability") 
     
 with tab_comp:
     st.write('Steps for defining a componet:  \n1- Click on the Enter your component key.  \n2- Click on Add New Component key.    \n3- Type a unique name for your component.     \n4- Choose the component distribution from the list.     \n5- Enter your Parameters.      \n6- Click on Add/Edit componet.       \n7- Clike on Edit button for editing an existing component.')
@@ -372,3 +373,7 @@ with tab_sen:
     st.write('Based on the cut set method and by using the Birnbaum, criticality and Fussell-Vesely factors, the components are listed related to their sesitivity to system failing, then if there is budget for maintenance we offer to spend for fixing by this priority.   ')
     st.number_input('Available Budget ', step=1, value=1, key='budget')
     st.button('List the component based on their sensitivity', on_click= Com_Sen)
+
+    
+st.title("System Reliability") 
+
