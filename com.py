@@ -338,8 +338,7 @@ def show_assistant_comp_config_File():
 
             st.write('File ', comp_config_filename, ' was saved.')
 
-
- tab_comp, tab_conf, tab_montc, tab_sen = st.sidebar.tabs(['Components Definition', 'Configuration Definition', 'Monte Carlo Calculation','Sensitivity Analysis'])
+tab_comp, tab_conf, tab_montc, tab_sen = st.sidebar.tabs(['Components Definition', 'Configuration Definition', 'Monte Carlo Calculation','Sensitivity Analysis'])
 
     
 with tab_comp:
