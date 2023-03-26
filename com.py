@@ -337,9 +337,15 @@ def show_assistant_comp_config_File():
             comp_c_file.close()
 
             st.write('File ', comp_config_filename, ' was saved.')
+def show_comp_rel():
+    st.write("-----------------")
+    st.subheader('Components Reliability Calculation')
 
-tab_comp, tab_conf, tab_montc, tab_sen = st.sidebar.tabs(['Components Definition', 'Configuration Definition', 'Monte Carlo Calculation','Sensitivity Analysis'])
+comp_rel,tab_comp, tab_conf, tab_montc, tab_sen = st.sidebar.tabs(['Components Reliability','Components Definition', 'Configuration Definition', 'Monte Carlo Calculation','Sensitivity Analysis'])
 
+#system reliability
+with comp_rel:
+    st.button('Components Reliability ', on_click=show_comp_rel)
     
 with tab_comp:
     st.write('Steps for defining a componet:  \n1- Click on the Enter your component key.  \n2- Click on Add New Component key.    \n3- Type a unique name for your component.     \n4- Choose the component distribution from the list.     \n5- Enter your Parameters.      \n6- Click on Add/Edit componet.       \n7- Clike on Edit button for editing an existing component.')
