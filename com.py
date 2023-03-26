@@ -339,8 +339,12 @@ def show_assistant_comp_config_File():
             st.write('File ', comp_config_filename, ' was saved.')
 def show_comp_rel():
     st.write("-----------------")
-    st.subheader('Components Reliability Calculation')
-
+    st.title('Components Reliability Calculation')
+    st.write("Scroll right for Calculation ->")
+def show_sys_rel():
+    st.write("-----------------")
+    st.title('System Reliability Calculation')
+    st.write("Scroll right for Calculation ->")
 comp_rel,tab_comp, tab_conf, tab_montc, tab_sen = st.sidebar.tabs(['Components Reliability','Components Definition', 'Configuration Definition', 'Monte Carlo Calculation','Sensitivity Analysis'])
 
 #system reliability
