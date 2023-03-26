@@ -1,41 +1,39 @@
 import streamlit as st
 
-# Define the home page
 def home():
     st.title("Home Page")
-    choice = st.radio(
+    option = st.radio(
         "Select an option:",
-        ["Perform basic calculations", "Perform advanced calculations"]
+        ("Perform basic calculations", "Perform advanced calculations")
     )
-    if choice == "Perform basic calculations":
+    if option == "Perform basic calculations":
         basic_calculations()
-    elif choice == "Perform advanced calculations":
+    elif option == "Perform advanced calculations":
         advanced_calculations()
 
-# Define the basic calculations page
 def basic_calculations():
     st.title("Basic Calculations")
     operation = st.sidebar.selectbox(
         "Select an operation",
-        ["Addition", "Subtraction", "Multiplication", "Division"]
+        ("Addition", "Subtraction", "Multiplication", "Division")
     )
-    x = st.sidebar.number_input("Enter a value for x:")
-    y = st.sidebar.number_input("Enter a value for y:")
+    x = st.sidebar.number_input("Enter a value for x:", value=0)
+    y = st.sidebar.number_input("Enter a value for y:", value=0)
     if operation == "Addition":
         result = x + y
     elif operation == "Subtraction":
         result = x - y
     elif operation == "Multiplication":
         result = x * y
-    else:
+    elif operation == "Division":
         result = x / y
-    st.write(f"Result: {result}")
+    else:
+        result = None
+    if result is not None:
+        st.write(f"Result: {result}")
 
-# Define the advanced calculations page
 def advanced_calculations():
     st.title("Advanced Calculations")
-    # TODO: Implement more complex calculations here
-    st.write("Sorry, this feature is still under construction.")
+    # TODO: Implement advanced calculations
 
-# Run the app
 home()
